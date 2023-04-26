@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apollo Library</title>
+    <link rel="icon"  href="./images/logo.jpg">
+   <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+            <nav class="sticky">
+                <ul>
+                    <li><div class="icon">
+                        <button class="btn"><a href="./index.html"><i class="fa fa-home fa-2x"></i></a></button>
+                        <button class="btn" onclick="viewfav();"><i class="fa fa-star fa-2x"></i></button>
+                        <button onclick="songform();" class="btn"><i class="fa fa-plus-circle fa-2x"></i></button>
+                    </div></li>
+                    <li><a href="./index.html"><h1>APOLLO LIBRARY</h1></a></li>
+                    <li>
+                        <div class="search-box">
+                            <button class="btn-search" ><i class="fa fa-search"></i></button>
+                            <input type="text"  id="search-input" onkeydown="search();" onkeyup="search();"  class="input-search" placeholder="Type to Search...">
+                          </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="musicLibrary">
+              <small></small>
+                <table id="playtable"class="searchable sortable" >
+                    <thead>
+                        <th>
+                            <button class="sort" data-sort="album">ALBUM</button>
+                        </th>
+                        <th>
+                            <button class="sort"  data-sort="song"><i id="arrow" onclick="asc('songName');" class="fa fa-angle-up fa-1x"></i>TRACK<i id="arrow" onclick="desc('songName');" class="fa fa-angle-down fa-1x"></i></button>
+                        </th>
+                        <th>
+                            <button class="sort" data-sort="artist"><i id="arrow" onclick="asc('artistName');" class="fa fa-angle-up fa-1x"></i>ARTIST<i id="arrow" onclick="desc('artistName');" class="fa fa-angle-down fa-1x"></i> </button>
+                        </th>
+                        <th>
+                            <button class="sort" data-sort="year"><i id="arrow" onclick="asc('year');" class="fa fa-angle-up fa-1x"></i>YEAR<i id="arrow" onclick="desc('year');"  class="fa fa-angle-down fa-1x"></i> </button>
+                        </th>
+                        <th>
+                        </th>
+                        
+                    </thead>
+
+                    <tbody class="list">
+                    </tbody>
+                </table>
+            </div>
+            <div class="login-box" style="display:none;">
+              <button id="home"><a href="./index.html"><i class="fa fa-home fa-2x"></i></a></button>
+                <h2>Add Song</h2>
+                <form>
+                  <div class="user-box">
+                    <input type="text" id="nsong" name="song" required="">
+                    <label>Track</label>
+                  </div>
+                  <div class="user-box">
+                    <input type="text" id="nartist" name="artist" required="">
+                    <label>Artist</label>
+                  </div>
+                  <div class="user-box">
+                    <input type="text" id="nyear" name="year" required="">
+                    <label>Year</label>
+                  </div>
+                  <div class="user-box">
+                    <input onchange="loadfile(event);" type="file" id="nalbum" name="album" style="font-size: 0px; padding-bottom: 20px;">
+                    <label>Upload Album Cover</label>
+                  </div>
+                  <a onclick="getvalue();">  
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <input type="submit" style="background-color:transparent; border:none; color:white">
+                  </a>
+                </form>
+              </div>
+
+            <section class="music-player" id="music-player1">
+                <header class="music-player--banner"></header>
+                <main class="music-player--main">
+                  <div class="music-player--progress">
+                    <progress class="progress--progress-bar" value="43" max="100"></progress>
+                    <div class="progress--time">1:37</div>
+                    <div class="progress--time progress--time__end">3:52</div>
+                  </div>
+                  <div class="music-player--controls">
+                    <i class="fa fa-pause controls--play-button"></i>
+                    
+                    <div class="song-info">
+                      <div class="song-info--title">Stressed Out</div>
+                      <div class="song-info--artist">twenty one pilots</div>
+                    </div>
+                    <div class="controls--actions">
+                      <i class="fa fa-retweet actions--repeat"></i>
+                      <i class="fa fa-backward actions--back"></i>
+                      <i class="fa fa-forward actions--forward"></i>
+                      <button id="expand"><a href="./player.html"><i class="fa fa-expand"></i></a></button>
+                    </div>
+                  </div>
+                </main>
+              </section>
+
+
+    </div>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/fn.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
